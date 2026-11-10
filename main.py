@@ -1,40 +1,37 @@
 from pyscript import document, display
 
-def check_country(e):
-    document.getElementById("output1").innerHTML = ""
-    country= {
-        "ph": "Philippines",
-        "au": "Australia",
-        "jp": "Japan",
-        "fr": "France",
-        "sg": "Singapore"
+def show_symbol(e):
+    document.getElementById("output").innerHTML = ""
+    symbol = {
+        "H": "Hydrogen",
+        "He": "Helium",
+        "C": "Carbon",
+        "N": "Nitrogen",
+        "O": "Oxygen",
+        "F": "Fluorine",
+        "Ne": "Neon",
+        "P": "Phosphorus",
+        "S": "Sulfer",
+        "Cl": "Chlorine",
+        "Ar": "Argon",
+        "Se": "Selenium",
+        "Br": "Bromine",
+        "Kr": "Krypton",
+        "I": "Iodine",
+        "Xe": "Xenon",
+        "At": "Astatine",
+        "Rn": "Radon",
+        "Ts": "Tennessine",
+        "Og": "Oganesson"
 
     }
 
-    
-    country_code = document.getElementById("countries").value
+    symbol_code = document.getElementById("symbols").value
 
-    #add a country
-    country["ca"] = "Canada"
+    show_symbol = symbol_code in symbol
+    list_symbol = list(symbol.values())
 
-    display(country.get(country_code, "Country code not found"), target="output1")
+    display("Is your Element Symbol a Nonmetal? - ", show_symbol, target="output")
+    display("Num. of Nonmetals - ", len(symbol), target="output")
+    display("What are the Nonmetals? ", list_symbol, target="output")
 
-def show_country(e):
-    document.getElementById("output1").innerHTML = ""
-    country= {
-        "ph": "Philippines",
-        "au": "Australia",
-        "jp": "Japan",
-        "fr": "France",
-        "sg": "Singapore"
-
-    }
-
-    country_code = document.getElementById("countries").value
-
-    show_country = country_code in country
-    list_country = list(country.values())
-
-    display("The number of countries are ", len(country), target="output1")
-    display("Is it in the country code list? ", show_country, target="output1")
-    display("What are the countries in the list? ", list_country, target="output1")
